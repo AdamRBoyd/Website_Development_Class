@@ -77,7 +77,8 @@ int main()
     }
 
     return 0;
-}```
+}
+```
 
 ### (b)
 For most of my C++ projects I have had to look up functions on [cplusplus.com](https://www.cplusplus.com/reference/) so that I can know the exact syntax and usage. Its a great site with exapmles of how to use the functions.
