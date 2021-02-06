@@ -209,9 +209,16 @@ console.log("Your name includes an 'i': " + lname.includes('i'));
 
 ### (a)
 
+**Font used:** Dancing Script from Google Fonts
+
 ### (b)
+
+![Q4b Screenshot](/images/hw24b.JPG)
 
 ### (c)
 
+![Q4c Screenshot](/images/hw24c.JPG)
+
 ### (d)
 
+![Q4d Screenshot](/images/hw24d.JPG)
