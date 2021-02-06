@@ -118,13 +118,13 @@
 ![Q3a Screenshot](/images/hw23a.JPG)
 
 ```javascript
-	parseInt('hello'); // (i) Why? and What is a NaN?
-	parseInt('12hello'); // (ii)
-	parseInt('1010', 2);  // (iii) What does this do?
-	parseInt('hi5'); // (iv) Is this the same as (ii)
+parseInt('hello'); // (i) Why? and What is a NaN?
+parseInt('12hello'); // (ii)
+parseInt('1010', 2);  // (iii) What does this do?
+parseInt('hi5'); // (iv) Is this the same as (ii)
 
-	parseFloat('3.145YourNameHere'); // Put in your name!
-	parseFloat('YourNameHere2112'); // Put in your name!
+parseFloat('3.145YourNameHere'); // Put in your name!
+parseFloat('YourNameHere2112'); // Put in your name!
 ```
 
 **(i)** NaN means Not a Number, which 'hello' is not a numerical value.
@@ -141,13 +141,13 @@
 ![Q3b Screenshot](/images/hw23b.JPG)
 
 ```javascript
-	pi = Math.PI;
-	h = 6.62607004e-34;
-	mpg = 343/11.8;
-	mpg.toString(); // Example, gives full "precision"
-	// (i) Use toFixed to get a string of the first 5 digits of pi
-	// (ii) Use toPrecision to get h (planck's constant) to 3 sig figs
-	// (iii) Use toFixed to get the mpg to a tenth of a gallon
+pi = Math.PI;
+h = 6.62607004e-34;
+mpg = 343/11.8;
+mpg.toString(); // Example, gives full "precision"
+// (i) Use toFixed to get a string of the first 5 digits of pi
+// (ii) Use toPrecision to get h (planck's constant) to 3 sig figs
+// (iii) Use toFixed to get the mpg to a tenth of a gallon
 ```
 
 **(i)** toFixed must be set at 4, as the number corresponds to the number of digits after the decimal, where as 0 or leaving it blank rounds to the nearest whole number.
@@ -161,16 +161,16 @@
 ![Q3c Screenshot](/images/hw23c.JPG)
 
 ```javascript
-	a = "Your Name Here"; // double quote string
-	b = 'Your Name Here'; // single quote string
-	console.log(a === b); // Check if these are equal
-	// Why bother with two string delimiters?
-	test = "It's a pain to always escape quotes"; // (i) does this work
-	console.log(test);
-	// test = 'It's a pain to always escape quotes'; // (ii) why not this?
-	// console.log(test2);
-	test3 = 'It\'s a pain to always escape quotes'; // (iii) What is going on here
-	console.log(test3);
+a = "Your Name Here"; // double quote string
+b = 'Your Name Here'; // single quote string
+console.log(a === b); // Check if these are equal
+// Why bother with two string delimiters?
+test = "It's a pain to always escape quotes"; // (i) does this work
+console.log(test);
+// test = 'It's a pain to always escape quotes'; // (ii) why not this?
+// console.log(test2);
+test3 = 'It\'s a pain to always escape quotes'; // (iii) What is going on here
+console.log(test3);
 ```
 
 **(i)** It works because the string was initialized with " and is looking for that as a closer for the string, thus ' is ignored.
@@ -184,15 +184,15 @@
 ![Q3d Screenshot](/images/hw23d.JPG)
 
 ```javascript
-	name = "Your Full Name here"
-	uname = name.toUpperCase(); // (i) What?
-	console.log(uname);
-	lname = name.toLowerCase(); // (ii) What?
-	console.log(lname);
-	// Explain what the following two lines do and show a screenshot
-	// of the results.
-	console.log("Your name includes an 'a': " + uname.includes('A'));
-	console.log("Your name includes an 'i': " + lname.includes('i'));
+name = "Your Full Name here"
+uname = name.toUpperCase(); // (i) What?
+console.log(uname);
+lname = name.toLowerCase(); // (ii) What?
+console.log(lname);
+// Explain what the following two lines do and show a screenshot
+// of the results.
+console.log("Your name includes an 'a': " + uname.includes('A'));
+console.log("Your name includes an 'i': " + lname.includes('i'));
 ```
 
 **(i)** This converts all the characters in the string to the upper case version of the character.
