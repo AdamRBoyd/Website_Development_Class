@@ -111,11 +111,11 @@ thead {
 
 ### (a)
 
-
+![Image for question 3a](/images/hw33a.JPG)
 
 ### (b)
 
-
+<http://csweb01.csueastbay.edu/~xv3543/clubProjectHW3/index.html>
 
 ## Question 4
 
