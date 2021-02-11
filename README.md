@@ -16,9 +16,9 @@ Images placed on the index.html page.
 
 Emojis used:
 
-&#x1F6A7 on Homepage.
+&#x1F6A7 (Construction Barricade) on Homepage.
 
-&#x1F62D on Activities page
+&#x1F62D (Crying emoji) on Activities page
 
 ![Image for question 1b](/images/hw31b.JPG)
 
