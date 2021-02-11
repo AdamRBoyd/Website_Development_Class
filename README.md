@@ -121,11 +121,88 @@ thead {
 
 ### (a)
 
+```javascript
+sentence = "A long, long, time ago in a galaxy"; // A string
+myArray = sentence.split(' '); // (i) what does this do?
+console.log("The number of words is: " + myArray.length);
+myArray.push("far"); // (ii) what do each of these calls do?
+myArray.push("far");
+myArray.push("away");
+console.log("The number of words is: " + myArray.length);
+console.log(myArray.join('_')); // (iii) what does join do?
+tempIndex = myArray.indexOf('galaxy'); // (iv) What does this do?
+myArray[tempIndex] = "college"; // (v) did I change an element?
+console.log(myArray.join(' '));
+myArray.pop(); // (vi) what does this do?
+console.log("The number of words is: " + myArray.length);
+```
+**(i)**
 
+This creates an array where the individual elements are the words in the sentence, they are divided by looking for the whitespace.
+
+**(ii)**
+
+This adds a word to the end of the array.
+
+**(iii)**
+
+This creates ands returns a new string of the concatonated elements in the array, adding a space between them.
+
+**(iv)**
+
+This locates the word "galaxy" and creates an indexable value of its location.
+
+**(v)**
+
+You changed the word at the temporary index from "galaxy" to "college".
+
+**(vi)**
+
+This removes the last element of the array and returns it (though you didn't use it).
+
+![Image for question 4a](/images/hw34a.JPG)
 
 ### (b)
 
+```javascript
+sentence2 = "Whereas recognition of the inherent dignity and of the equal and inalienable rights of all members of the human family is the foundation of freedom, justice and peace in the world";
+myArray2 = sentence2.split(" ");
 
+function upper(xString) { // (i) What does this function do?
+  return xString.toUpperCase();
+}
+
+myArray3 = myArray2.map(upper); //(ii) What does map do?
+
+function noCaseSort(x, y) {
+  if (x.toLowerCase() < y.toLowerCase()) { // (iii) why would I do this?
+    return -1;
+  } else {
+    return 1;
+  }
+  return 0;
+}
+
+myArray2.sort(noCaseSort);
+// (iv) what is the purpose of passing this function here?
+```
+
+**(i)**
+
+This returns an uppercase version of the inputted string.
+
+**(ii)**
+
+This returns a new array containing the results of calling a function for every element in the original array.
+
+**(iii)**
+
+This is used to compare two strings without having to take case sensitivity into account (Adam vs adam).
+
+**(iv)**
+
+This will allow you to sort the array without worrying about letters being upper vs lower case as Z > a in ascii.
 
 ### (c)
 
+![Image for question 4c](/images/hw34c.JPG)
