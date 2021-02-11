@@ -15,8 +15,12 @@ h1 {
 
 h2 {
     font-family: "DancingScript";
-    font-size: 2em;
+    font-size: 3em;
     text-align: justify;
+}
+
+p {
+    font-size: 1.5em;
 }
 
 body {
@@ -80,6 +84,10 @@ a:visited {
 
 .small {
     max-height: 300px;
+}
+
+.tiny {
+    max-height: 100px;
 }
 
 .center {
