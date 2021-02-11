@@ -10,8 +10,7 @@
 
 h1 {
     font-family: "DancingScriptBold";
-    font-size: 5em;
-    text-align: center;
+    font-size: 6em;
 }
 
 h2 {
@@ -49,7 +48,7 @@ nav ul {
 }
 
 header {
-    padding: .5em;
+    text-align: center;
 }
 
 footer {
@@ -69,4 +68,27 @@ a:visited {
 
 .active {
     background-color: #9fa8a3;
+}
+
+.large {
+    max-height: 600px;
+}
+
+.med {
+    max-height: 450px;
+}
+
+.small {
+    max-height: 300px;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+
+figure figcaption {
+    text-align: center;
 }

@@ -8,6 +8,10 @@
 
 ### (a)
 
+Images placed on the index.html page.
+
+![Image for question 1a](/images/hw31a.JPG)
+
 ### (b)
 
 ### (c)
