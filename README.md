@@ -155,7 +155,7 @@ let nonClubEvents = [{
     </script>
 ```
 
-![Image for question 3b(/images/hw43bJPG)
+![Image for question 3b](/images/hw43bJPG)
 
 ## Question 4
 
