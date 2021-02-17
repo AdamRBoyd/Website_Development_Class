@@ -107,7 +107,55 @@ let nonClubEvents = [{
 
 ### (a)
 
+```HTML
+<form action="" method="get" class="form-login">
+    <div class="form-login">
+        <label for="email">Email: </label>
+        <input type="email" name="email" id="email" required>
+
+        <label for="password">Password: </label>
+        <input type="text" name="password" id="password" required>
+
+        <input type="button" value="Login" id="click">
+    </div>
+</form>
+```
+
 ### (b)
+
+```HTML
+<main>
+    <p id="clickMessage"></p>
+
+    <form action="" method="get" class="form-login">
+        <div class="form-login">
+            <label for="email">Email: </label>
+            <input type="email" name="email" id="email" required>
+
+            <label for="password">Password: </label>
+            <input type="text" name="password" id="password" required>
+
+            <input type="button" value="Login" id="click">
+        </div>
+    </form>
+    <p>This is where you login to the private section of the site.</p>
+</main>
+```
+```javascript
+    <script>
+        let cl1 = document.getElementById("click");
+        let cl2 = document.getElementById("clickMessage");
+
+        function clickHandler() {
+            cl2.classList.add("bordered");
+            cl2.innerHTML = "<h3><strong>Welcome " + document.getElementById("email").value + "</strong></h3><h6>This site is currently under construction!</h6>";
+        }
+
+        cl1.addEventListener("click", clickHandler);
+    </script>
+```
+
+![Image for question 3b(/images/hw43bJPG)
 
 ## Question 4
 
