@@ -88,7 +88,20 @@ let nonClubEvents = [{
 
 ### (a)
 
+![Image for question 2a(/images/hw42aJPG)
+
 ### (b)
+
+```HTML
+<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="login.html">Member Login</a></li>
+        <li><a href="activities.html">Club Activities</a></li>
+        <li class="active"><a href="signup.html">Sign Up</a></li>
+    </ul>
+</nav>
+```
 
 ## Question 3
 
