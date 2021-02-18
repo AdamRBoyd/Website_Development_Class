@@ -119,11 +119,28 @@ thead {
 .bordered {
     background-color: #c5d5cb;
     border-style: groove;
-    padding: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
     text-align: center;
-    max-width: 75%;
+    max-width: 50%;
     margin-left: auto;
     margin-right: auto;
+    padding: 1em;
+}
+
+.show {
+    position: relative;
+}
+
+.hide {
+    position: absolute;
+    left: -500px;
+}
+
+input:valid {
+    border: 1px solid green;
+    color: green;
+}
+
+input:invalid {
+    border: 1px solid red;
+    color: red;
 }

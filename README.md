@@ -138,7 +138,7 @@ let nonClubEvents = [{
             <input type="button" value="Login" id="click">
         </div>
     </form>
-    <p>This is where you login to the private section of the site.</p>
+	<br>
 </main>
 ```
 ```javascript
@@ -161,9 +161,70 @@ let nonClubEvents = [{
 
 ### (a)
 
+```javascript
+<form action="" method="get" class="form-signup">
+    <div class="form-signup">
+        <label for="name">Name: </label>
+        <input type="text" name="name" id="name" minlength="1" maxlength="50" required>
+
+        <label for="email">Email: </label>
+        <input type="email" name="email" id="email" minlength="4" maxlength="32" required>
+
+        <label for="password">Password: </label>
+        <input type="password" name="password" id="password" minlength="8" maxlength="32" required>
+
+        <label for="how">How did you hear about us?: </label>
+        <select name="how" id="how">
+            <option value="google">Google</option>
+            <option value="friend">Friend</option>
+            <option value="site">Other Website</option>
+        </select>
+
+        <input type="button" value="Sign up">
+    </div>
+</form>
+```
+
 ### (b)
 
 ### (c)
+
+```CSS
+.show {
+    position: relative;
+}
+
+.hide {
+    position: absolute;
+    left: -500px;
+}
+```
+
+```javascript
+<script>
+    let cl1 = document.getElementById("click");
+    let cl2 = document.getElementById("ThanksDialog");
+    let n = document.getElementById("name");
+    let e = document.getElementById("email");
+    let p = document.getElementById("password");
+
+    function clickHandler() {
+        if (n.checkValidity() && e.checkValidity() && p.checkValidity()) {
+            cl2.innerHTML = "<h2>Thanks for Signing Up!</h2><h3>Name: " + n.value + " <br> Email: " + e.value + "</h3><br><button id=\"close\">Close</button>";
+            cl2.classList.replace("hide", "show");
+            let cl3 = document.getElementById("close");
+        }
+    }
+
+    cl1.addEventListener("click", clickHandler);
+    document.addEventListener("click", function(e) {
+        if (e.target && e.target.id == "close") {
+            cl2.classList.add("hide");
+        }
+    });
+</script>
+```
+
 
 ## Question 5
 

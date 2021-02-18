@@ -19,20 +19,21 @@
         <h1>Login</h1>
     </header>
     <main>
-        <p id="clickMessage"></p>
 
+        <br>
         <form action="" method="get" class="form-login">
             <div class="form-login">
                 <label for="email">Email: </label>
-                <input type="email" name="email" id="email" required>
+                <input type="email" name="email" id="email" minlength="4" maxlength="32" required>
 
                 <label for="password">Password: </label>
-                <input type="text" name="password" id="password" required>
+                <input type="password" name="password" id="password" minlength="8" maxlength="32" required>
 
                 <input type="button" value="Login" id="click">
             </div>
         </form>
-        <p>This is where you login to the private section of the site.</p>
+        <br>
+        <section id="clickMessage" class="bordered hide"></section>
     </main>
     <footer>
         &copy; 2021 Adam Boyd
@@ -40,10 +41,14 @@
     <script>
         let cl1 = document.getElementById("click");
         let cl2 = document.getElementById("clickMessage");
+        let emVal = document.getElementById("email");
+        let pasVal = document.getElementById("password");
 
         function clickHandler() {
-            cl2.classList.add("bordered");
-            cl2.innerHTML = "<h3><strong>Welcome " + document.getElementById("email").value + "</strong></h3><h6>This site is currently under construction!</h6>";
+            if (emVal.checkValidity() && pasVal.checkValidity()) {
+                cl2.classList.replace("hide", "show");
+                cl2.innerHTML = "<h2><strong>Welcome " + emVal.value + "</strong></h2><h4>This site is currently under construction!</h4><br>";
+            }
         }
 
         cl1.addEventListener("click", clickHandler);
