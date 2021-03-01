@@ -28,8 +28,6 @@ body {
 
 main {
     background-color: #9fa8a3;
-    display: flex;
-    flex-direction: column;
     width: 60%;
     margin: auto;
     padding-left: 3em;
@@ -120,8 +118,7 @@ thead {
 .bordered {
     background-color: #c5d5cb;
     border-style: groove;
-    text-align: center;
-    max-width: 50%;
+    max-width: 60%;
     margin-left: auto;
     margin-right: auto;
     padding: 1em;
@@ -144,4 +141,21 @@ input:valid {
 input:invalid {
     border: 1px solid red;
     color: red;
+}
+
+form {
+    display: grid;
+    grid-template-columns: 30% auto;
+    grid-gap: 16px;
+    width: 100%;
+}
+
+label {
+    grid-column: 1 / 2;
+}
+
+input,
+button,
+select {
+    grid-column: 2 / 2;
 }

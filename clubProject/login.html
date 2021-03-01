@@ -20,9 +20,8 @@
     </header>
     <main>
 
-        <br>
-        <form action="" method="get" class="form-login">
-            <div class="form-login">
+        <section class="gridContainer bordered">
+            <form action="" method="get" class="form-login">
                 <label for="email">Email: </label>
                 <input type="email" name="email" id="email" minlength="4" maxlength="32" required>
 
@@ -30,8 +29,9 @@
                 <input type="password" name="password" id="password" minlength="8" maxlength="32" required>
 
                 <input type="button" value="Login" id="click">
-            </div>
-        </form>
+
+            </form>
+        </section>
         <br>
         <section id="clickMessage" class="bordered hide"></section>
     </main>
@@ -47,7 +47,7 @@
         function clickHandler() {
             if (emVal.checkValidity() && pasVal.checkValidity()) {
                 cl2.classList.replace("hide", "show");
-                cl2.innerHTML = "<h2><strong>Welcome " + emVal.value + "</strong></h2><h4>This site is currently under construction!</h4><br>";
+                cl2.innerHTML = "<h2><center><strong>Welcome " + emVal.value + "</strong></center></h2><h4><center>This site is currently under construction!</h4></center><br>";
             }
         }
 

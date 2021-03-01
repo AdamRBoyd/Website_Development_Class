@@ -112,7 +112,70 @@ footer {
 
 ### (a)
 
+```CSS
+form {
+    display: grid;
+    grid-template-columns: 30% auto;
+    grid-gap: 16px;
+    width: 100%;
+}
+
+label {
+    grid-column: 1 / 2;
+}
+
+input,
+button,
+select {
+    grid-column: 2 / 2;
+}
+```
+
 ### (b)
+
+```HTML
+<section class="gridContainer bordered">
+    <form action="" method="get">
+        <label for="name">Name: </label>
+        <input type="text" name="name" id="name" minlength="1" maxlength="50" required>
+
+        <label for="email">Email: </label>
+        <input type="email" name="email" id="email" minlength="4" maxlength="32" required>
+
+        <label for="password">Password: </label>
+        <input type="password" name="password" id="password" minlength="8" maxlength="32" required>
+
+        <label for="how">How did you hear about us?: </label>
+        <select name="how" id="how">
+            <option value="google">Google</option>
+            <option value="friend">Friend</option>
+            <option value="site">Other Website</option>
+        </select>
+
+        <input type="button" value="Signup" id="click">
+    </form>
+</section>
+```
+
+```CSS
+form {
+    display: grid;
+    grid-template-columns: 30% auto;
+    grid-gap: 16px;
+    width: 100%;
+}
+
+label {
+    grid-column: 1 / 2;
+}
+
+input,
+button,
+select {
+    grid-column: 2 / 2;
+}
+```
 
 ### (c)
 
+<http://csweb01.csueastbay.edu/~xv3543/clubProjectHW5/>

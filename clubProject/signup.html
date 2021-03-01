@@ -19,9 +19,8 @@
         <h1>Sign Up</h1>
     </header>
     <main>
-        <br>
-        <form action="" method="get" class="form-signup">
-            <div class="form-signup">
+        <section class="gridContainer bordered">
+            <form action="" method="get">
                 <label for="name">Name: </label>
                 <input type="text" name="name" id="name" minlength="1" maxlength="50" required>
 
@@ -39,9 +38,8 @@
                 </select>
 
                 <input type="button" value="Signup" id="click">
-
-            </div>
-        </form>
+            </form>
+        </section>
         <br>
         <section id="ThanksDialog" class="hide bordered">
 
@@ -60,7 +58,7 @@
 
         function clickHandler() {
             if (n.checkValidity() && e.checkValidity() && p.checkValidity()) {
-                cl2.innerHTML = "<h2>Thanks for Signing Up!</h2><h3>Name: " + n.value + " <br> Email: " + e.value + "</h3><br><button id=\"close\">Close</button>";
+                cl2.innerHTML = "<h2><center>Thanks for Signing Up!</center></h2><h3><center>Name: " + n.value + " <br> Email: " + e.value + "</center></h3><br><center><button id=\"close\">Close</button></center>";
                 cl2.classList.replace("hide", "show");
                 let cl3 = document.getElementById("close");
             }
