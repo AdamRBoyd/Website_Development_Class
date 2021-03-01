@@ -34,15 +34,41 @@ states.forEach(element => {
 
 ### (c)
 
-
-
 ## Question 2
 
 ### (a)
 
 ### (b)
 
-### (c)
+```HTML
+<nav>
+    <ul>
+        <li class="active"><a href="index.html">Home</a></li>
+        <li><a href="login.html">Member Login</a></li>
+        <li><a href="activities.html">Club Activities</a></li>
+        <li><a href="signup.html">Sign Up</a></li>
+    </ul>
+</nav>
+```
+
+```CSS
+nav {
+    background-color: #c5d5cb;
+    border-style: solid;
+    border-color: #9fa8a3;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+}
+
+nav ul {
+    list-style-type: none;
+    text-decoration: none;
+    display: flex;
+    justify-content: space-around;
+}
+```
 
 ## Question 3
 

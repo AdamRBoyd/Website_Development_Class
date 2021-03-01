@@ -37,20 +37,25 @@ main {
     border-style: outset;
 }
 
-nav ul {
+nav {
     background-color: #c5d5cb;
-    max-width: 8em;
-    border-style: groove;
-    margin-top: 2em;
-    margin-left: 2em;
-    padding: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
+    border-style: solid;
+    border-color: #9fa8a3;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+}
+
+nav ul {
     list-style-type: none;
     text-decoration: none;
+    display: flex;
+    justify-content: space-around;
 }
 
 header {
+    padding-top: 3em;
     text-align: center;
 }
 
