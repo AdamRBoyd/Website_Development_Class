@@ -1,0 +1,64 @@
+/* Put your CSS BELOW here variant D*/
+
+body {
+    background-color: crimson;
+}
+
+main {
+    background-color: cornsilk;
+    border-style: double;
+    border-color: cadetblue;
+    border-width: 2em;
+    padding: 2em;
+    margin: 3em;
+}
+
+
+/* Put your CSS ABOVE here */
+
+
+/* DO NOT CHANGE CSS BELOW HERE */
+
+.display {
+    max-height: 40vh;
+    overflow: auto;
+}
+
+header span {
+    display: inline-block;
+    min-width: 10em;
+    min-height: 1rem;
+    border: dashed red;
+}
+
+
+/* Table styling do not change */
+
+table {
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: solid 2px blue;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+
+/* Triple tiger striping with the nth-child selector! */
+
+tbody tr:nth-child(3n) {
+    background-color: bisque;
+}
+
+tbody tr:nth-child(3n+1) {
+    background-color: aliceblue;
+}
+
+tbody tr:nth-child(3n+2) {
+    background-color: lightgreen;
+}
+
+
+/* End of table styling */

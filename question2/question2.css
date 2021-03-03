@@ -1,0 +1,45 @@
+/*  DO NOT CHANGE THIS FILE!!! */
+
+body {
+    background-color: tan;
+}
+
+main {
+    background-color: white;
+    margin: 2rem;
+    padding: 1rem;
+    max-width: 35rem;
+}
+
+section {
+    border: solid;
+    border-radius: 1rem;
+    padding: 0.5rem;
+}
+
+span {
+    display: inline-block;
+    width: 5em;
+    border: solid blue;
+    line-height: 2em;
+    text-align: center;
+    cursor: pointer;
+}
+
+input {
+    text-align: center;
+    line-height: 2em;
+    font-weight: bold;
+}
+
+.sad {
+    border: dashed red 1em;
+    color: red;
+    background-color: aliceblue;
+}
+
+.happy {
+    border: solid green 1em;
+    color: darkmagenta;
+    background-color: lightseagreen;
+}
