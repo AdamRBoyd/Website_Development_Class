@@ -174,3 +174,99 @@ events.nonClubEvents.forEach(element => {
 <h2>Join the Club</h2>
 <h6><em>~~~ This Site Under Construction ~~~</em></h6>
 ```
+
+## Question 3
+
+### (a)
+
+### (b)
+
+![Image for question 3b](/images/hw63b.JPG)
+
+## Question 4
+
+### (a)
+
+### (b)
+
+**base.njk:**
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>East Bay Jewelry Makers Club</title>
+        <meta name="author" content="{{author}}">
+        <meta name="description" content="{{description}}">
+        <link href="club.css" rel="stylesheet">
+    </head>
+    <body>
+    <nav>
+    </nav>
+    <main>
+        {{mainContent | safe}}
+    </main>
+    </body>
+</html>
+```
+
+### (c)
+
+**processIt.js:**
+
+```javascript
+const fs = require('fs');
+const readline = require('readline');
+const matter = require('gray-matter');
+const nunjucks = require('nunjucks');
+
+nunjucks.configure('views', { autoescape: true });
+
+let commonmark = require('commonmark');
+let reader = new commonmark.Parser();
+let writer = new commonmark.HtmlRenderer();
+
+const inFile = fs.readFileSync('about.md', 'utf8');
+let readFile = matter(inFile);
+console.log(readFile.data);
+
+let parsed = reader.parse(readFile.content);
+let result = writer.render(parsed);
+
+let outString = nunjucks.render('base.njk', { mainContent: result, title: readFile.data.title, author: readFile.data.author, description: readFile.data.description });
+fs.writeFileSync('./output/about.html', outString);
+console.log("Wrote file");
+```
+
+**about.html:**
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>About the East Bay Jewelry Makers Club</title>
+        <meta name="author" content="Adam Boyd">
+        <meta name="description" content="This is the About Us page for the East Bay Jewelry Makers Club">
+        <link href="club.css" rel="stylesheet">
+        
+    </head>
+    <body>
+    <nav>
+        
+    </nav>
+    <main>
+        <h1>East Bay Jewelry Makers Club</h1>
+<h2>An East Bay Club</h2>
+<p>Some information about us goes here... Something about being a club based in the California Bay Area, and where most of our members are from... Stuff and things.</p>
+<h2>Jewelry Making</h2>
+<p>This should be a section of what we do and why... yup...</p>
+<h2>Join the Club</h2>
+<p>Looking to join? Click on the Sign Up link above!!</p>
+<h6><em>~~~ This Site Under Construction ~~~</em></h6>
+
+    </main>
+    </body>
+</html>
+```

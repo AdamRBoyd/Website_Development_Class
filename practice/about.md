@@ -1,3 +1,9 @@
+---
+title: About the East Bay Jewelry Makers Club
+author: Adam Boyd
+description: This is the About Us page for the East Bay Jewelry Makers Club
+---
+
 # East Bay Jewelry Makers Club
 
 ## An East Bay Club
@@ -10,6 +16,6 @@ This should be a section of what we do and why... yup...
 
 ## Join the Club
 
-Looking to join? CLick on the Sign Up link above!!
+Looking to join? Click on the Sign Up link above!!
 
 ###### *~~~ This Site Under Construction ~~~*
