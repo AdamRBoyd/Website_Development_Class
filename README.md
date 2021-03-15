@@ -102,3 +102,25 @@ events.nonClubEvents.forEach(element => {
 ## Question 2
 
 ### (a)
+
+I used the ***npm init --yes*** method.
+
+### (b)
+
+```JSON
+{
+  "name": "practice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "processIt.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "commonmark": "^0.29.3"
+  }
+}
+```
