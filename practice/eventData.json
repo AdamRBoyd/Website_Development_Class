@@ -1,0 +1,24 @@
+{
+    "nonClubEvents": [{
+        "link": "https://www.intergem.com/events/upcoming-shows/san-mateo-ca-july-9-11-2021",
+        "image": "images/IntergemShow.png",
+        "imageAlt": "Intergem Show Logo",
+        "title": "Intergem Show",
+        "location": "San Mateo, CA",
+        "date": "July 9-11, 2021"
+    }, {
+        "link": "https://www.rockandmineralshows.com/Search/ListingDetails/vallejo-gem-mineral-society/384/false/false",
+        "image": "images/RockandMineralShows.jpg",
+        "imageAlt": "Rock and Mineral Shows Logo",
+        "title": "Vallejo Gem & Mineral Society",
+        "location": "Vallejo , CA",
+        "date": "February 27-28, 2021"
+    }, {
+        "link": "https://www.tradeindia.com/tradeshows/92078/the-fall-contra-costa-crystal-fair-2021.html",
+        "image": "images/CrystalFair.jpg",
+        "imageAlt": "Crystal Fair Logo",
+        "title": "The Fall Contra Costa Crystal Fair",
+        "location": "Walnut Creek, CA",
+        "date": "April 17-18, 2021"
+    }]
+}
