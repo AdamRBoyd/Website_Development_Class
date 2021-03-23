@@ -110,3 +110,18 @@ The difference between UDP and TCP is handshakes. UDP is a connectionless protoc
 ## Question 3
 
 ### (a)
+
+DNS Servers:
+[
+  '75.75.75.75',
+  '75.75.76.76',
+  '2001:558:feed::1',
+  '2001:558:feed::2'
+]
+
+*None of the servers listed appear to be local to my network.*
+
+### (b)
+
+Address for Disney.com\
+[ '130.211.198.204' ]
