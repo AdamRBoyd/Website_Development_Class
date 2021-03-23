@@ -90,3 +90,23 @@ allFiles.forEach(function(srcName) {
 ## Question 2
 
 ### (a)
+
+**IPv4 =** 192.168.126.1
+
+**Ethernet =** 10.0.0.42
+
+### (b)
+
+We use IP for the worldwide internet because it is more information dense, and allows for more addresses as opposed to the local ethernet, which typically doesn't need more than a few hundered addresses as much fewer devices are connected to it.
+
+### (c)
+
+We transmit files larger that the maximum packet size by breaking the file into smaller bits that will fit into packets, transmitting those, then reassembling them at the destination. This is handled in the Transport layer.
+
+### (d)
+
+The difference between UDP and TCP is handshakes. UDP is a connectionless protocol and therefore does not guarantee delivery. We typically use TCP because of this fact, we want to guarantee that the data is recieved and is at the correct address.
+
+## Question 3
+
+### (a)
