@@ -170,3 +170,23 @@ Fragment:
 
 ### (a)
 
+**Output:**
+
+![Image for question 2a](/images/hw82a.JPG)
+
+**Why:**
+
+To start, the first line is sent to the log, then the second line creates a timeout (with a default millisecond of 0) and a promise for the cs651 function. After that timeout is set (but not yet returned), the second line logs. Next the second timeout/promise is set (to 0 as specified), and the third log ('Is this the end?') is sent to the console. once these lines are done, then the promises are handled as they come back, so cs651, then cs351.
+
+### (b)
+
+**Output:**
+
+![Image for question 2a](/images/hw82b.JPG)
+
+This code creates 3 promises with random timeouts, then sets them to return as a .race, which returns as soon as the first to fullfill comes back (ignoring the other two).
+
+In this case, to determine who won the race you simply look at the value of PromiseResult, which returned P1 twice and then P2 (in my case).
+
+### (c)
+
