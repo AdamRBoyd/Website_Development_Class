@@ -190,3 +190,13 @@ In this case, to determine who won the race you simply look at the value of Prom
 
 ### (c)
 
+![Image for question 2a](/images/hw82c.JPG)
+
+### (d)
+
+![Image for question 2a](/images/hw82d.JPG)
+
+## Question 3
+
+### (a)
+
