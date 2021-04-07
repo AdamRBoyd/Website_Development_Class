@@ -154,17 +154,17 @@ Fragment: **none**
 
 http://127.0.0.2:8282/static/index.html: **This site  can't be reached**
 
-Protocol:
+Protocol: **http**
 
-Domain:
+Domain:  **127.0.0.2**
 
-Port:
+Port:  **8282**
 
-Path:
+Path:  **/static/index.html**
 
-Query:
+Query:  **none**
 
-Fragment:
+Fragment:  **none**
 
 ## Question 2
 
@@ -182,7 +182,7 @@ To start, the first line is sent to the log, then the second line creates a time
 
 **Output:**
 
-![Image for question 2a](/images/hw82b.JPG)
+![Image for question 2b](/images/hw82b.JPG)
 
 This code creates 3 promises with random timeouts, then sets them to return as a .race, which returns as soon as the first to fullfill comes back (ignoring the other two).
 
@@ -190,13 +190,76 @@ In this case, to determine who won the race you simply look at the value of Prom
 
 ### (c)
 
-![Image for question 2a](/images/hw82c.JPG)
+![Image for question 2c](/images/hw82c.JPG)
 
 ### (d)
 
-![Image for question 2a](/images/hw82d.JPG)
+![Image for question 2d](/images/hw82d.JPG)
 
 ## Question 3
 
 ### (a)
+
+![Image for question 3a](/images/hw83a.JPG)
+
+### (b)
+
+![Image for question 3a](/images/hw83b.JPG)
+
+### (c)
+
+![Image for question 3a](/images/hw83c1.JPG)
+
+![Image for question 3a](/images/hw83c2.JPG)
+
+```javascript
+var express = require('express');
+var app = express();
+
+app.get('/date', function(req, res) {
+    let myDate = new Date().toLocaleDateString("en-US");
+    let myTime = new Date().toLocaleTimeString("en-US");
+    let myName = 'Adam Boyd';
+    res.send(`Hello ${myName}, Date and Time: ${myDate} ${myTime}`);
+});
+
+let visits = 0;
+
+app.get('/netID', function(req, res) {
+    visits++;
+    let myName = 'Adam Boyd';
+    let myID = 'xv3543';
+    res.send(`Name: ${myName}, NetID: ${myID}, Number of visits: ${visits}`);
+});
+
+port = 5555;
+host = '127.0.0.2';
+app.listen(port, host, function() {
+    console.log(`Example app listening on IPv4: ${host}:${port}`);
+});
+```
+
+## Question 4
+
+### (a)
+
+
+
+### (b)
+
+
+
+### (c)
+
+
+
+### (d)
+
+
+
+### (e)
+
+
+
+### (f)
 
