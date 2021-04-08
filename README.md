@@ -172,7 +172,7 @@ Fragment:  **none**
 
 **Output:**
 
-![Image for question 2a](/images/hw82a.JPG)
+![Image for question 2a](/images/HW82a.JPG)
 
 **Why:**
 
@@ -182,7 +182,7 @@ To start, the first line is sent to the log, then the second line creates a time
 
 **Output:**
 
-![Image for question 2b](/images/hw82b.JPG)
+![Image for question 2b](/images/HW82b.JPG)
 
 This code creates 3 promises with random timeouts, then sets them to return as a .race, which returns as soon as the first to fullfill comes back (ignoring the other two).
 
@@ -190,27 +190,27 @@ In this case, to determine who won the race you simply look at the value of Prom
 
 ### (c)
 
-![Image for question 2c](/images/hw82c.JPG)
+![Image for question 2c](/images/HW82c.JPG)
 
 ### (d)
 
-![Image for question 2d](/images/hw82d.JPG)
+![Image for question 2d](/images/HW82d.JPG)
 
 ## Question 3
 
 ### (a)
 
-![Image for question 3a](/images/hw83a.JPG)
+![Image for question 3a](/images/HW83a.JPG)
 
 ### (b)
 
-![Image for question 3b](/images/hw83b.JPG)
+![Image for question 3b](/images/HW83b.JPG)
 
 ### (c)
 
-![Image for question 3c1](/images/hw83c1.JPG)
+![Image for question 3c1](/images/HW83c1.JPG)
 
-![Image for question 3c2](/images/hw83c2.JPG)
+![Image for question 3c2](/images/HW83c2.JPG)
 
 ```javascript
 var express = require('express');
@@ -272,7 +272,7 @@ app.listen(port, host, function() {
 
 ### (e)
 
-![Image for question 4e](/images/hw84e.JPG)
+![Image for question 4e](/images/HW84e.JPG)
 
 ```javascript
 app.get('/', function(req, res) {
@@ -290,4 +290,4 @@ app.get('/uptime', function(req, res) {
 
 ### (f)
 
-![Image for question 4e](/images/hw84f.JPG)
+![Image for question 4e](/images/HW84f.JPG)
