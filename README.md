@@ -204,13 +204,13 @@ In this case, to determine who won the race you simply look at the value of Prom
 
 ### (b)
 
-![Image for question 3a](/images/hw83b.JPG)
+![Image for question 3b](/images/hw83b.JPG)
 
 ### (c)
 
-![Image for question 3a](/images/hw83c1.JPG)
+![Image for question 3c1](/images/hw83c1.JPG)
 
-![Image for question 3a](/images/hw83c2.JPG)
+![Image for question 3c2](/images/hw83c2.JPG)
 
 ```javascript
 var express = require('express');
@@ -243,23 +243,51 @@ app.listen(port, host, function() {
 
 ### (a)
 
-
-
 ### (b)
 
-
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% block metaStuff %}
+        {% endblock %}
+        <link href="css/club.css" rel="stylesheet">
+    </head>
+    <body>
+    <main>
+        {% block main %}{% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2021 Adam Boyd</p>
+    </footer>
+    </body>
+</html>
+```
 
 ### (c)
 
-
-
 ### (d)
-
-
 
 ### (e)
 
+![Image for question 4e](/images/hw84e.JPG)
 
+```javascript
+app.get('/', function(req, res) {
+    count++;
+    let data = { name: yourName, id: netId, visits: count };
+    res.render('index.njk', data);
+});
+
+app.get('/uptime', function(req, res) {
+    let curDate = new Date();
+    let data = { startDate: serverStart, currentDate: curDate };
+    res.render('uptime.njk', data);
+})
+```
 
 ### (f)
 
+![Image for question 4e](/images/hw84f.JPG)
