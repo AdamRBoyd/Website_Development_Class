@@ -207,4 +207,6 @@
 
 ### (a)
 
+![Screenshot for 4a](images/HW94a.JPG)
+
 ### (b)
