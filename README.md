@@ -195,13 +195,28 @@
 
 ### (a)
 
+![Screenshot for 3a](images/HW93a.JPG)
+
 ### (b)
 
-
+![Screenshot for 3b](images/HW93b.JPG)
 
 ### (c)
 
+![Screenshot for 3c](images/HW93c.JPG)
 
+```javascript
+app.post('/membershipSignup', urlencodedParser, function(req, res) {
+    console.log(req.body);
+    delete req.body["password"];
+    console.log(`\n New Membership: \n`);
+    console.log(req.body);
+    memberApplications.push(req.body);
+    console.log(`\n Current Member list: \n`);
+    console.log(memberApplications);
+    res.render('thanks.njk', { info: req.body });
+});
+```
 
 ## Question 4
 

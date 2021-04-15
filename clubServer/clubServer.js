@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 app.use(express.static('public'))
+let urlencodedParser = express.urlencoded({ extended: true });
 
 const nunjucks = require('nunjucks');
 nunjucks.configure('templates', { autoescape: true, express: app });
@@ -12,9 +13,7 @@ let host = 'localhost';
 let port = 3002;
 
 let serverStart = new Date(); // Server start Date time
-let yourName = "Adam Boyd";
-let netId = "xv3543";
-
+let memberApplications = [];
 
 app.get('/', function(req, res) {
     res.render('index.njk', { scriptFile: "index.js" });
@@ -26,6 +25,17 @@ app.get('/login', function(req, res) {
 
 app.get('/membership', function(req, res) {
     res.render('membership.njk', { scriptFile: "signup.js" });
+});
+
+app.post('/membershipSignup', urlencodedParser, function(req, res) {
+    console.log(req.body);
+    delete req.body["password"];
+    console.log(`\n New Membership: \n`);
+    console.log(req.body);
+    memberApplications.push(req.body);
+    console.log(`\n Current Member list: \n`);
+    console.log(memberApplications);
+    res.render('thanks.njk', { info: req.body });
 });
 
 app.get('/activities', function(req, res) {

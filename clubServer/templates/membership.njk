@@ -12,7 +12,7 @@
 
 {% block main %}
     <section class="gridContainer bordered">
-        <form action="" method="get">
+        <form action="/membershipSignup" method="post">
             <label for="name">Name: </label>
             <input type="text" name="name" id="name" minlength="1" maxlength="50" required>
             <label for="email">Email: </label>
@@ -25,7 +25,10 @@
                 <option value="friend">Friend</option>
                 <option value="site">Other Website</option>
             </select>
-            <input type="button" value="Signup" id="click">
+            <label for="comments">Comments: </label>
+            <input type="text" name="comments" id="comments" minlength="0" maxlength="50">
+            <button type="submit">Signup</button>
+            
         </form>
     </section>
     <br>

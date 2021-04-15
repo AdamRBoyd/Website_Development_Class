@@ -1,3 +1,5 @@
+//OLD CODE
+/*
 let cl1 = document.getElementById("click");
 let cl2 = document.getElementById("ThanksDialog");
 let n = document.getElementById("name");
@@ -18,6 +20,7 @@ document.addEventListener("click", function(e) {
         cl2.classList.add("hide");
     }
 });
+*/
 
 let navActive = document.querySelector("nav ul #signup");
 navActive.className = 'active';
