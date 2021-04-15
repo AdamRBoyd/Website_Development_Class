@@ -4,7 +4,6 @@
     <title>Club Activities</title>
     <meta name="author" content="Adam Boyd">
     <meta name="description" content="The club activites for the East Bay Jewelry Makers Club">
-    <script type="text/javascript" src="events.json"></script>
 {% endblock %}
 
 {% block header %}
@@ -22,6 +21,16 @@
                     <th> Time </th>
                 </tr>
             </thead>
+            <tbody>
+                {%for event in events.futureEvents%}
+                    <tr>
+                        <td>{{event.title}}</td>
+                        <td>{{event.location}}</td>
+                        <td>{{event.date}}</td>
+                        <td>{{event.time}}</td>
+                    </tr>
+                {%endfor%}
+            </tbody>
         </table>
 
 
@@ -39,6 +48,15 @@
                     <th> Date </th>
                 </tr>
             </thead>
+            <tbody>
+                {%for event in events.pastEvents%}
+                    <tr>
+                        <td>{{event.title}}</td>
+                        <td>{{event.location}}</td>
+                        <td>{{event.date}}</td>
+                    </tr>
+                {%endfor%}
+            </tbody>
         </table>
 
         <br>
@@ -50,11 +68,19 @@
         <table id="nonClub">
             <thead>
                 <tr>
-                    <th> Link </th>
                     <th> Event Title </th>
                     <th> Location </th>
                     <th> Date </th>
                 </tr>
             </thead>
+            <tbody>
+                {%for event in events.nonClubEvents%}
+                    <tr>
+                        <td>{{event.title}}</td>
+                        <td>{{event.location}}</td>
+                        <td>{{event.date}}</td>
+                    </tr>
+                {%endfor%}
+            </tbody>
         </table>
 {% endblock %}

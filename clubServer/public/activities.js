@@ -1,8 +1,18 @@
-console.log(events.events);
+//OLD CODE
 
-let future = events.events;
-let pastEvents = events.pastEvents;
-let nonClubEvents = events.nonClubEvents;
+/*var events;
+
+var future;
+var pastEvents;
+var nonClubEvents;
+
+fetch('./events.json')
+    .then(results => results.json())
+    .then(data => {
+        future = data.events;
+        pastEvents = data.pastEvents;
+        nonClubEvents = data.nonClubEvents;
+    });
 
 
 function createEvents() {
@@ -35,6 +45,8 @@ function createNonClub() {
 createEvents();
 createPast();
 createNonClub();
+
+*/
 
 let navActive = document.querySelector("nav ul #activities");
 navActive.className = 'active';

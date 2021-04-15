@@ -121,6 +121,16 @@
                     <th> Time </th>
                 </tr>
             </thead>
+            <tbody>
+                {%for event in events.futureEvents%}
+                    <tr>
+                        <td>{{event.title}}</td>
+                        <td>{{event.location}}</td>
+                        <td>{{event.date}}</td>
+                        <td>{{event.time}}</td>
+                    </tr>
+                {%endfor%}
+            </tbody>
         </table>
 
 
@@ -138,6 +148,15 @@
                     <th> Date </th>
                 </tr>
             </thead>
+            <tbody>
+                {%for event in events.pastEvents%}
+                    <tr>
+                        <td>{{event.title}}</td>
+                        <td>{{event.location}}</td>
+                        <td>{{event.date}}</td>
+                    </tr>
+                {%endfor%}
+            </tbody>
         </table>
 
         <br>
@@ -149,12 +168,20 @@
         <table id="nonClub">
             <thead>
                 <tr>
-                    <th> Link </th>
                     <th> Event Title </th>
                     <th> Location </th>
                     <th> Date </th>
                 </tr>
             </thead>
+            <tbody>
+                {%for event in events.nonClubEvents%}
+                    <tr>
+                        <td>{{event.title}}</td>
+                        <td>{{event.location}}</td>
+                        <td>{{event.date}}</td>
+                    </tr>
+                {%endfor%}
+            </tbody>
         </table>
 {% endblock %}
 
@@ -162,13 +189,19 @@
 
 ### (c)
 
+![Screenshot for 2c](images/HW92c.JPG)
+
 ## Question 3
 
 ### (a)
 
 ### (b)
 
+
+
 ### (c)
+
+
 
 ## Question 4
 
