@@ -32,7 +32,6 @@ app.get('/membership', function(req, res) {
 });
 
 app.post('/membershipSignup', urlencodedParser, function(req, res) {
-    res.render('thanks.njk', { info: req.body });
     console.log(req.body);
     delete req.body["password"];
     console.log(`\n New Membership: \n`);
@@ -40,6 +39,7 @@ app.post('/membershipSignup', urlencodedParser, function(req, res) {
     memberApplications.push(req.body);
     console.log(`\n Current Member list: \n`);
     console.log(memberApplications);
+    res.render('thanks.njk', { info: req.body });
 });
 
 app.get('/activities', function(req, res) {
