@@ -1,12 +1,36 @@
-{% extends "base.njk" %}
+{% extends "clubBase.njk" %}
 
 {% block metaStuff %}
     <title>East Bay Jewelry Makers Club</title>
+    <meta name="author" content="Adam Boyd">
+    <meta name="description" content="The main club page for the East Bay Jewelry Makers Club">
 {% endblock %}
-    
-{% block main %}
-    <h1>Hello From {{name}}</h1>
-    <h2>NetID: {{id}}</h2>
-    <h2>This page has been visited {{visits}} times!</h2>
 
+{% block header %}
+    <h1>East Bay Jewelry Makers Club</h1>
 {% endblock %}
+
+{% block main %}
+    <h2>An East Bay Club</h2>
+        <p>Describe the location of the club</p>
+
+        <br>
+        <h2>Jewelry Making</h2>
+        <p>Describe what we are about.</p>
+
+        <br>
+        <hr style="width: 100%;">
+        <figure class="center">
+            <img class="small" src="images/BrokenHeartPendant.jpg" alt="Broken Heart Pendant by Adam Boyd Designs">
+            <img class="small" src="images/CopperLabradoriteMainNew.jpg" alt="Copper and Labradorite Pendant by Adam Boyd Designs">
+            <img class="small" src="images/SakuraEarrings.jpg" alt="Sakura earrings in progress by Adam Boyd Designs">
+            <img class="small" src="images/CopperWorldHand.jpg" alt="Copper World Pendant by Adam Boyd Designs">
+
+        </figure>
+        <figcaption class="center"><a href="http://AdamBoydDesigns.etsy.com">Jewelry by Adam Boyd Designs</a></figcaption>
+        <hr style="width: 100%;">
+
+        <br>
+        <br>
+{% endblock %}
+

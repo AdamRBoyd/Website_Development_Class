@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        {% block metaStuff %}{% endblock %}
+        <link href="club.css" rel="stylesheet">
+    </head>
+
+<body>
+    <nav>
+        <ul>
+            <li id="index"><a href="/">Home</a></li>
+            <li id="login"><a href="login">Member Login</a></li>
+            <li id="activities"><a href="activities">Club Activities</a></li>
+            <li id="signup"><a href="membership">Sign Up</a></li>
+        </ul>
+    </nav>
+    <header>
+        {% block header %}{% endblock %}
+    </header>
+    <main>
+        {% block main %}{% endblock %}
+    </main>
+    <footer>
+        &copy; 2021 Adam Boyd
+    </footer>
+    <script src="{{scriptFile}}"></script>
+</body>
+</html>
