@@ -45,6 +45,28 @@ users.forEach(element => {
 
 ### (c)
 
+```javascript
+const bcrypt = require('bcryptjs');
+let nRounds = 13;
+
+app.post('/membershipSignup', urlencodedParser, function(req, res) {
+    let salt = bcrypt.genSaltSync(nRounds);
+    let newuser = {
+        "name": req.body.name,
+        "email": req.body.email,
+        "password": bcrypt.hashSync(req.body.password, salt),
+        "how": req.body.how,
+        "comments": req.body.comments
+    };
+
+    console.log(`\n New Membership: \n`);
+    console.log(newuser);
+    memberApplications.push(newuser);
+
+    res.render('thanks.njk', { info: newuser });
+});
+```
+
 ## Question 2
 
 ### (a)

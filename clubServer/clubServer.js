@@ -9,6 +9,9 @@ nunjucks.configure('templates', { autoescape: true, express: app });
 const events = require('./events.json');
 const serverID = require("./severID.json");
 
+const bcrypt = require('bcryptjs');
+let nRounds = 13;
+
 let host = 'localhost';
 let port = 3002;
 
@@ -32,14 +35,20 @@ app.get('/membership', function(req, res) {
 });
 
 app.post('/membershipSignup', urlencodedParser, function(req, res) {
-    console.log(req.body);
-    delete req.body["password"];
+    let salt = bcrypt.genSaltSync(nRounds);
+    let newuser = {
+        "name": req.body.name,
+        "email": req.body.email,
+        "password": bcrypt.hashSync(req.body.password, salt),
+        "how": req.body.how,
+        "comments": req.body.comments
+    };
+
     console.log(`\n New Membership: \n`);
-    console.log(req.body);
-    memberApplications.push(req.body);
-    console.log(`\n Current Member list: \n`);
-    console.log(memberApplications);
-    res.render('thanks.njk', { info: req.body });
+    console.log(newuser);
+    memberApplications.push(newuser);
+
+    res.render('thanks.njk', { info: newuser });
 });
 
 app.get('/activities', function(req, res) {
