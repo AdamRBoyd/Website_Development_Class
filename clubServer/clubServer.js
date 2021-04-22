@@ -159,7 +159,7 @@ app.get('/activityAdded', function(req, res) {
     console.log('\nNew Event Added:');
     console.log(event);
     var info = { scriptFile: "activities.js", events: events };
-    res.redirect('/activities');
+    res.redirect('activities');
 });
 
 app.get('/members', function(req, res) {
