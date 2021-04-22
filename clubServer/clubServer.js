@@ -6,17 +6,18 @@ let urlencodedParser = express.urlencoded({ extended: true });
 const nunjucks = require('nunjucks');
 nunjucks.configure('templates', { autoescape: true, express: app });
 
-const events = require('./events.json');
-const serverID = require("./severID.json");
-
 const bcrypt = require('bcryptjs');
 let nRounds = 13;
 
+const events = require('./events.json');
+const serverID = require("./severID.json");
+const users = require('./clubUsersHash.json');
+
 let host = 'localhost';
 let port = 3002;
-
 let serverStart = new Date(); // Server start Date time
 let memberApplications = [];
+
 
 app.get('/', function(req, res) {
     res.render('index.njk', { scriptFile: "index.js" });
@@ -28,6 +29,26 @@ app.get('/index', function(req, res) {
 
 app.get('/login', function(req, res) {
     res.render('login.njk', { scriptFile: "login.js" });
+});
+
+app.post('/memberLogin', urlencodedParser, function(req, res) {
+    let userNum = users.findIndex((element => element == req.body.email)) + 1;
+    console.log(`\nUser Login: ${req.body.email}`);
+    let page = res; //compare overwrites original res, so store the original for later
+    bcrypt.compare(req.body.password, users[userNum].password, function(err, res) {
+        if (err) {
+            console.log('ERROR!!');
+        }
+        if (res) {
+            console.log('Valid Login');
+            let validUser = users[userNum];
+            delete validUser.password;
+            page.render('validLogin.njk', { info: validUser });
+        } else {
+            console.log('Invalid Login');
+            page.render('invalid.njk');
+        }
+    });
 });
 
 app.get('/membership', function(req, res) {

@@ -1,0 +1,18 @@
+{% extends "clubBase.njk" %}
+
+{% block metaStuff %}
+    <title>Login Complete!</title>
+    <meta name="author" content="Adam Boyd">
+    <meta name="description" content="If you got here, then you did it right!">
+{% endblock %}
+
+{% block header %}
+    <h1>Thanks for Loging In!!</h1>
+{% endblock %}
+
+{% block main %}
+    <h2>Your Information</h2>
+    <p>Name: {{info.firstName}} {{info.lastName}}</p>
+    <p>Email: {{info.email}}</p>
+    <p>Role: {{info.role}}</p>
+{% endblock %}

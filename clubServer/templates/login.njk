@@ -12,14 +12,13 @@
 
 {% block main %}
     <section class="gridContainer bordered">
-        <form action="" method="get" class="form-login">
+        <form action="memberLogin" method="post" class="form-login">
             <label for="email">Email: </label>
             <input type="email" name="email" id="email" minlength="4" maxlength="32" required>
             <label for="password">Password: </label>
             <input type="password" name="password" id="password" minlength="8" maxlength="32" required>
-            <input type="button" value="Login" id="click">
+            <button type="submit">Sign in</button>
         </form>
     </section>
     <br>
-    <section id="clickMessage" class="bordered hide"></section>
 {% endblock %}

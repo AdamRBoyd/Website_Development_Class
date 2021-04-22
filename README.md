@@ -71,11 +71,47 @@ app.post('/membershipSignup', urlencodedParser, function(req, res) {
 
 ### (a)
 
+```HTML
+<form action="memberLogin" method="post" class="form-login">
+    <label for="email">Email: </label>
+    <input type="email" name="email" id="email" minlength="4" maxlength="32" required>
+    <label for="password">Password: </label>
+    <input type="password" name="password" id="password" minlength="8" maxlength="32" required>
+    <button type="submit">Sign in</button>
+</form>
+```
+
 ### (b)
+
+```javascript
+app.post('/memberLogin', urlencodedParser, function(req, res) {
+    let userNum = users.findIndex((element => element == req.body.email)) + 1;
+    console.log(`\nUser Login: ${req.body.email}`);
+    let page = res; //compare overwrites original res, so store the original for later
+    bcrypt.compare(req.body.password, users[userNum].password, function(err, res) {
+        if (err) {
+            console.log('ERROR!!');
+        }
+        if (res) {
+            console.log('Valid Login');
+            let validUser = users[userNum];
+            delete validUser.password;
+            page.render('validLogin.njk', { info: validUser });
+        } else {
+            console.log('Invalid Login');
+            page.render('invalid.njk');
+        }
+    });
+});
+```
 
 ### (c)
 
+![Screenshot for question 2c](/images/HW102c.JPG)
+
 ### (d)
+
+![Screenshot for question 2d](/images/HW102d.JPG)
 
 ## Question 3
 

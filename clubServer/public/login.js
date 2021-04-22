@@ -1,3 +1,5 @@
+//OLD CODE
+/*
 let cl1 = document.getElementById("click");
 let cl2 = document.getElementById("clickMessage");
 let emVal = document.getElementById("email");
@@ -11,6 +13,7 @@ function clickHandler() {
 }
 
 cl1.addEventListener("click", clickHandler);
+*/
 
 let navActive = document.querySelector("nav ul #login");
 navActive.className = 'active';
