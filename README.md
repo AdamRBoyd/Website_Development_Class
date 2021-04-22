@@ -129,7 +129,7 @@ app.get('/activityAdded', function(req, res) {
         "location": req.query.location,
         "dateTime": dt
     };
-    if (events.futureEvents[0].title === "No Title") {
+    if (events.futureEvents[0].title === "No Title") { //remove placeholder info
         events.futureEvents.shift();
     }
     if (events.length > 100) { // only keep the last 100 activities added
@@ -148,9 +148,60 @@ app.get('/activityAdded', function(req, res) {
 
 ### (a)
 
+```javascript
+app.post('/logon', express.urlencoded({ extended: true }), function(req, res) {
+    console.log(req.body);
+    let email = req.body.email;
+    let password = req.body.password;
+    // Find user
+    let auser = users.find(function(user) {
+        return user.email === email
+    });
+    if (!auser) { // Not found
+        res.render("loginError.njk");
+        return;
+    }
+    let verified = bcrypt.compareSync(password, auser.passHash);
+    if (verified) {
+        // Upgrade in priveledge, should generate new session id
+        // Save old session information if any, create a new session
+        let oldInfo = req.session.user;
+        req.session.regenerate(function(err) {
+            if (err) {
+                console.log(err);
+            }
+            req.session.user = Object.assign(oldInfo, auser, {
+                loggedin: true
+            });
+            res.render("welcome.njk", { user: auser });
+        });
+    } else {
+        res.render("loginError.njk");
+        return response.status(400).send('bad request');
+    }
+});
+```
+
 ### (b)
 
+```javascript
+app.get('/logout', function(req, res) {
+    let options = req.session.cookie;
+    req.session.destroy(function(err) {
+        if (err) {
+            console.log(err);
+        }
+        res.clearCookie(cookieName, options);
+        res.render("goodbye.njk");
+    })
+});
+```
+
 ### (c)
+
+![Screenshot for question 4c part a](/images/HW104ca.JPG)
+
+![Screenshot for question 4c part b](/images/HW104cb.JPG)
 
 ## Question 5
 

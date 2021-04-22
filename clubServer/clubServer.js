@@ -2,6 +2,15 @@ const express = require('express');
 const app = express();
 app.use(express.static('public'))
 let urlencodedParser = express.urlencoded({ extended: true });
+const session = require('express-session');
+const cookieName = "clubsid";
+
+app.use(session({
+    secret: 'east bay jewelry makers',
+    resave: false,
+    saveUninitialized: false,
+    name: cookieName // Sets the name of the cookie used by the session middleware
+}));
 
 const nunjucks = require('nunjucks');
 nunjucks.configure('templates', { autoescape: true, express: app });
@@ -19,38 +28,87 @@ let serverStart = new Date(); // Server start Date time
 let memberApplications = [];
 let events = eventsData;
 
+const setUpSessionMiddleware = function(req, res, next) {
+    console.log(`session object: ${JSON.stringify(req.session)}`);
+    console.log(`session id: ${req.session.id}`);
+    if (!req.session.user) {
+        req.session.user = {
+            loggedin: false
+        };
+    }
+    next();
+};
+
+app.use(setUpSessionMiddleware);
+
+const checkLoggedInMiddleware = function(req, res, next) {
+    if (!req.session.user.loggedin) {
+        res.render("Forbidden.njk");
+    } else {
+        next();
+    }
+};
+
 
 app.get('/', function(req, res) {
-    res.render('index.njk', { scriptFile: "index.js" });
+    res.render('index.njk', { scriptFile: "index.js", user: req.session.user });
 });
 
 app.get('/index', function(req, res) {
-    res.render('index.njk', { scriptFile: "index.js" });
+    res.render('index.njk', { scriptFile: "index.js", user: req.session.user });
 });
 
 app.get('/login', function(req, res) {
-    res.render('login.njk', { scriptFile: "login.js" });
+    res.render('login.njk', { scriptFile: "login.js", user: req.session.user });
 });
 
 app.post('/memberLogin', urlencodedParser, function(req, res) {
-    let userNum = users.findIndex((element => element == req.body.email)) + 1;
     console.log(`\nUser Login: ${req.body.email}`);
+    let email = req.body.email;
+    let password = req.body.password;
+    let currUser = users.find(function(user) {
+        return user.email === email
+    });
+    if (!currUser) { // Not found
+        res.render("invalid.njk");
+        return;
+    }
+
     let page = res; //compare overwrites original res, so store the original for later
-    bcrypt.compare(req.body.password, users[userNum].password, function(err, res) {
+    bcrypt.compare(password, currUser.password, function(err, res) {
         if (err) {
             console.log('ERROR!!');
         }
         if (res) {
             console.log('Valid Login');
-            let validUser = users[userNum];
-            delete validUser.password;
-            page.render('validLogin.njk', { info: validUser });
+            let oldInfo = req.session.user;
+            req.session.regenerate(function(err) {
+                if (err) {
+                    console.log(err);
+                }
+                req.session.user = Object.assign(oldInfo, currUser, {
+                    loggedin: true
+                });
+                page.render('validLogin.njk', { info: currUser, user: req.session.user });
+            });
         } else {
             console.log('Invalid Login');
             page.render('invalid.njk');
         }
     });
 });
+
+app.get('/logout', function(req, res) {
+    let options = req.session.cookie;
+    req.session.destroy(function(err) {
+        if (err) {
+            console.log(err);
+        }
+        res.clearCookie(cookieName, options);
+        res.render("goodbye.njk");
+    })
+});
+
 
 app.get('/membership', function(req, res) {
     res.render('membership.njk', { scriptFile: "signup.js" });
@@ -74,12 +132,12 @@ app.post('/membershipSignup', urlencodedParser, function(req, res) {
 });
 
 app.get('/activities', function(req, res) {
-    var info = { scriptFile: "activities.js", events: events };
+    var info = { scriptFile: "activities.js", events: events, user: req.session.user };
     res.render('activities.njk', info);
 });
 
 app.get('/addActivity', function(req, res) {
-    var info = { scriptFile: "addActivity.js" };
+    var info = { scriptFile: "addActivity.js", user: req.session.user };
     res.render('addActivity.njk', info);
 });
 
@@ -90,11 +148,12 @@ app.get('/activityAdded', function(req, res) {
         "location": req.query.location,
         "dateTime": dt
     };
-    if (events.futureEvents[0].title === "No Title") {
+    if (events.futureEvents[0].title === "No Title") { //remove placeholder info
         events.futureEvents.shift();
     }
     if (events.length > 100) { // only keep the last 100 activities added
         events.futureEvents.shift(); // removes the first item
+        console.log('Future Events List More Than 100 Entries, Removing First');
     }
     events.futureEvents.push(event);
     console.log('\nNew Event Added:');
