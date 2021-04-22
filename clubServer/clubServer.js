@@ -162,7 +162,7 @@ app.get('/activityAdded', function(req, res) {
     res.redirect('activities');
 });
 
-app.get('/members', function(req, res) {
+app.get('/members', checkLoggedInMiddleware, function(req, res) {
     res.render('memberList.njk', { scriptFile: "memberList.js", users: users, user: req.session.user });
 });
 
