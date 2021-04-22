@@ -136,7 +136,7 @@ app.get('/activities', function(req, res) {
     res.render('activities.njk', info);
 });
 
-app.get('/addActivity', function(req, res) {
+app.get('/addActivity', checkLoggedInMiddleware, function(req, res) {
     var info = { scriptFile: "addActivity.js", user: req.session.user };
     res.render('addActivity.njk', info);
 });
@@ -160,6 +160,10 @@ app.get('/activityAdded', function(req, res) {
     console.log(event);
     var info = { scriptFile: "activities.js", events: events };
     res.redirect('/activities');
+});
+
+app.get('/members', function(req, res) {
+    res.render('memberList.njk', { scriptFile: "memberList.js", users: users, user: req.session.user });
 });
 
 app.get('/uptime', function(req, res) {

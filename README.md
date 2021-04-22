@@ -207,8 +207,16 @@ app.get('/logout', function(req, res) {
 
 ### (a)
 
+![Screenshot for question 5a](/images/HW105a.JPG)
+
 ### (b)
+
+![Screenshot for question 5b](/images/HW105b.JPG)
 
 ### (c)
 
+![Screenshot for question 5c](/images/HW105c.JPG)
+
 ### (d)
+
+<https://www.drbsclasses.org/student2/node/>
