@@ -9,7 +9,7 @@ nunjucks.configure('templates', { autoescape: true, express: app });
 const bcrypt = require('bcryptjs');
 let nRounds = 13;
 
-const events = require('./events.json');
+const eventsData = require('./events.json');
 const serverID = require("./severID.json");
 const users = require('./clubUsersHash.json');
 
@@ -17,6 +17,7 @@ let host = 'localhost';
 let port = 3002;
 let serverStart = new Date(); // Server start Date time
 let memberApplications = [];
+let events = eventsData;
 
 
 app.get('/', function(req, res) {
@@ -75,6 +76,31 @@ app.post('/membershipSignup', urlencodedParser, function(req, res) {
 app.get('/activities', function(req, res) {
     var info = { scriptFile: "activities.js", events: events };
     res.render('activities.njk', info);
+});
+
+app.get('/addActivity', function(req, res) {
+    var info = { scriptFile: "addActivity.js" };
+    res.render('addActivity.njk', info);
+});
+
+app.get('/activityAdded', function(req, res) {
+    var dt = new Date(req.query.dateTime).toLocaleString(); //convert date/time to formatted local
+    let event = {
+        "title": req.query.title,
+        "location": req.query.location,
+        "dateTime": dt
+    };
+    if (events.futureEvents[0].title === "No Title") {
+        events.futureEvents.shift();
+    }
+    if (events.length > 100) { // only keep the last 100 activities added
+        events.futureEvents.shift(); // removes the first item
+    }
+    events.futureEvents.push(event);
+    console.log('\nNew Event Added:');
+    console.log(event);
+    var info = { scriptFile: "activities.js", events: events };
+    res.redirect('/activities');
 });
 
 app.get('/uptime', function(req, res) {

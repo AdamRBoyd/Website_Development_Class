@@ -117,7 +117,32 @@ app.post('/memberLogin', urlencodedParser, function(req, res) {
 
 ### (a)
 
+![Screenshot for question 3a](/images/HW103a.JPG)
+
 ### (b)
+
+```javascript
+app.get('/activityAdded', function(req, res) {
+    var dt = new Date(req.query.dateTime).toLocaleString(); //convert date/time to formatted local
+    let event = {
+        "title": req.query.title,
+        "location": req.query.location,
+        "dateTime": dt
+    };
+    if (events.futureEvents[0].title === "No Title") {
+        events.futureEvents.shift();
+    }
+    if (events.length > 100) { // only keep the last 100 activities added
+        events.futureEvents.shift(); // removes the first item
+        console.log('Future Events List More Than 100 Entries, Removing First');
+    }
+    events.futureEvents.push(event);
+    console.log('\nNew Event Added:');
+    console.log(event);
+    var info = { scriptFile: "activities.js", events: events };
+    res.redirect('/activities');
+});
+```
 
 ## Question 4
 

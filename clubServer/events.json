@@ -1,5 +1,5 @@
 {
-    "futureEvents": [{ "title": "No Upcoming Events", "location": "No Location", "date": "No Date", "time": "No Time Given" }],
+    "futureEvents": [{ "title": "No Title", "location": "No Location", "dateTime": "No Date/Time" }],
 
     "pastEvents": [{ "title": "No Past Events Yet...", "location": "No Location", "date": "No Date" }],
 
