@@ -141,7 +141,7 @@ app.get('/addActivity', checkLoggedInMiddleware, function(req, res) {
     res.render('addActivity.njk', info);
 });
 
-app.get('/activityAdded', function(req, res) {
+app.get('/activityAdded', checkLoggedInMiddleware, function(req, res) {
     var dt = new Date(req.query.dateTime).toLocaleString(); //convert date/time to formatted local
     let event = {
         "title": req.query.title,

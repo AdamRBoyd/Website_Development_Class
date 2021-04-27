@@ -41,3 +41,16 @@ const checkLoggedInMiddleware = function(req, res, next) {
 
 ### (a)
 
+The protection would be tested by attempting to type in the correct url for the page without going through a menu link, also an attempt with the ger form data. Thus attempting to go around the missing link and going directly to the page.
+
+![Screenshot for Question 2a part a](/images/HW112aa.JPG)
+
+![Screenshot for Question 2a part b](/images/HW112ab.JPG)
+
+### (b)
+
+<https://www.drbsclasses.org/student2/node/>
+
+## Question 3
+
+### (a)
