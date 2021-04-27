@@ -80,3 +80,14 @@ npm init --yes
 
 ### (c)
 
+### (d)
+
+### (e)
+
+![Screenshot for Question 3e part a](/images/HW113ea.JPG)
+
+![Screenshot for Question 3e part b](/images/HW113eb.JPG)
+
+## Question 4
+
+### (a)
