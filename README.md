@@ -54,3 +54,29 @@ The protection would be tested by attempting to type in the correct url for the 
 ## Question 3
 
 ### (a)
+
+npm init --yes
+
+### (b)
+
+```json
+{
+  "name": "clubReact",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
+```
+
+### (c)
+
