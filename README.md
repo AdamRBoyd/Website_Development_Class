@@ -91,3 +91,19 @@ npm init --yes
 ## Question 4
 
 ### (a)
+
+### (b)
+
+**Filename:** menu.js
+
+![Screenshot for Question 4b](/images/HW114b.JPG)
+
+### (c)
+
+**Filename:** home.js
+
+![Screenshot for Question 4c](/images/HW114c.JPG)
+
+## Question 5
+
+### (a)

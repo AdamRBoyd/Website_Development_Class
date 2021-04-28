@@ -1,11 +1,9 @@
 // index.js file
 import React from "react";
 import ReactDOM from "react-dom";
+import Menu from "./menu";
+import Home from "./home";
 
-let myName = "Adam Boyd";
-let contents = <section>
-    <h1>Hello from React</h1>
-    <h2>{myName}</h2>
-  </section>;
+let contents = <><Menu /> <Home /></>; 
 
 ReactDOM.render(contents, document.getElementById("root"));
