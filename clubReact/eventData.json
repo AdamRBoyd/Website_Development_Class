@@ -1,7 +1,5 @@
 {
-    "futureEvents": [{ "title": "No Title", "location": "No Location", "dateTime": "No Date/Time" }],
-
-    "pastEvents": [{ "title": "No Past Events Yet...", "location": "No Location", "date": "No Date" }],
+    "events": [{ "title": "No Title", "location": "No Location", "dateTime": "No Date/Time" }],
 
     "nonClubEvents": [{
         "title": "Intergem Show",
