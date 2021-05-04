@@ -103,3 +103,90 @@ content =
 
 ### (a)
 
+![Screenshot for Q4a](/images/HW124a.JPG)
+
+### (b)
+
+### (c)
+
+![Screenshot for Q4c](/images/HW124c.JPG)
+
+### (d)
+
+```javascript
+class AdminActivity extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { events: [], nonClub: []};
+    }
+
+```
+
+### (e)
+
+```javascript
+return <React.Fragment>
+            <header>
+                <h1>Activity Management</h1>
+            </header>
+            <main>
+                <h2>Add Activity:</h2>
+
+                <section className="gridContainer bordered2">
+                    <form onSubmit={this.handleSubmit}>
+                        <label>Title: </label>
+                        <input type="text" name="title" minLength="1" maxLength="50" required />
+                        
+                        <label>Location: </label>
+                        <input type="text" name="location" minLength="1" maxLength="50" required />
+
+                        <label>Date: </label>
+                        <input type="date" name="dateTime" minLength="1" maxLength="50" required />
+
+                        <label>Activity List: </label>
+                        <select name="which">
+                            <option value="future">Future Events</option>
+                            <option value="nonClub">Non-Club Events</option>
+                        </select>
+                        
+                        <button type="submit">Add</button>
+                    </form>
+                </section>
+
+```
+
+### (f)
+
+AdminActivity.js:
+```javascript
+handleSubmit = (event) => {
+        event.preventDefault();
+
+        let newEvent = {
+            title: event.target.title.value,
+            location: event.target.location.value,
+            dateTime: event.target.dateTime.value
+        };
+        console.log(newEvent);
+        if(event.target.which.value == "future") {
+            this.props.addE(newEvent);
+        }
+        else {
+            this.props.addNCE(newEvent);
+        }
+        
+    }
+```
+
+index.js:
+```javascript
+addActivityHandler(a){
+        this.setState({events: this.state.events.concat(a) })
+        this.setState({show: "adminActivity"})
+    };
+
+    addActivityNonClubHandler(a){
+        this.setState({nonclub: this.state.nonclub.concat(a) })
+        this.setState({show: "adminActivity"})
+    };
+```

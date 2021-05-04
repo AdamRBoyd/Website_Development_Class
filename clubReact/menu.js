@@ -8,7 +8,7 @@ function Menu(props) {
                 <ul>
                     <li onClick={props.home}>Home</li>
                     <li onClick={props.activities}>Club Activities</li>
-                    <li>Activities Management</li>
+                    <li onClick={props.adminActivity}>Activities Management</li>
                     <li>Members</li>
                     <li>Log Out</li>
                 </ul>

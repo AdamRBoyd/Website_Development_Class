@@ -2,12 +2,12 @@ import React from 'react';
 
 
 function Activities(props) {
-    let eventList = props.events.events.map(function (e){
+    let events = props.events.map(function (e){
         return <tr key={e.title}><td>{e.title}</td><td>{e.location}</td><td>{e.dateTime}</td></tr>;
     });
 
-    let nonClubEventList = props.events.nonClubEvents.map(function (e){
-        return <tr key={e.title}><td>{e.title}</td><td>{e.location}</td><td>{e.date}</td></tr>;
+    let nonClub = props.nonclub.map(function (e){
+        return <tr key={e.title}><td>{e.title}</td><td>{e.location}</td><td>{e.dateTime}</td></tr>;
     });
 
     return <React.Fragment>
@@ -16,31 +16,38 @@ function Activities(props) {
         </header>
         <main>
             <h2>Future Events:</h2>
-            <table id="events">
-                <thead>
-                    <tr>
-                        <th> Event Title </th>
-                        <th> Location </th>
-                        <th> Date / Time </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {eventList}
-                </tbody>
-            </table>
+            <section className="gridContainer bordered2">
+                <table id="events">
+                    <thead>
+                        <tr>
+                            <th> Event Title </th>
+                            <th> Location </th>
+                            <th> Date / Time </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {events}
+                    </tbody>
+                </table>
+            </section>
+
+
             <h2>Non-Club Events:</h2>
-            <table id="nonClub">
-                <thead>
-                    <tr>
-                        <th> Event Title </th>
-                        <th> Location </th>
-                        <th> Date </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {nonClubEventList}
-                </tbody>
-            </table>
+            <section className="gridContainer bordered2">
+                <table id="nonClub">
+                    <thead>
+                        <tr>
+                            <th> Event Title </th>
+                            <th> Location </th>
+                            <th> Date / Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {nonClub}
+                    </tbody>
+                </table>
+            </section>
+
         </main>
         <footer>
                 &copy; 2021 Adam Boyd

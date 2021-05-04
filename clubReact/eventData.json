@@ -4,14 +4,14 @@
     "nonClubEvents": [{
         "title": "Intergem Show",
         "location": "San Mateo, CA",
-        "date": "July 9-11, 2021"
+        "dateTime": "July 9-11, 2021"
     }, {
         "title": "Vallejo Gem & Mineral Society",
         "location": "Vallejo , CA",
-        "date": "February 27-28, 2021"
+        "dateTime": "February 27-28, 2021"
     }, {
         "title": "The Fall Contra Costa Crystal Fair",
         "location": "Walnut Creek, CA",
-        "date": "April 17-18, 2021"
+        "dateTime": "April 17-18, 2021"
     }]
 }
