@@ -6,8 +6,8 @@ function Menu(props) {
         case "admin":
             content = 
                 <ul>
-                    <li>Home</li>
-                    <li>Club Activities</li>
+                    <li onClick={props.home}>Home</li>
+                    <li onClick={props.activities}>Club Activities</li>
                     <li>Activities Management</li>
                     <li>Members</li>
                     <li>Log Out</li>
@@ -16,18 +16,18 @@ function Menu(props) {
         case "user":
             content = 
                 <ul>
-                    <li>Home</li>
-                    <li>Club Activities</li>
+                    <li onClick={props.home}>Home</li>
+                    <li onClick={props.activities}>Club Activities</li>
                     <li>Log Out</li>
                 </ul>
             break;
         default:
             content = 
                 <ul>
-                    <li>Home</li>
-                    <li>Club Activities</li>
+                    <li onClick={props.home}>Home</li>
+                    <li onClick={props.activities}>Club Activities</li>
                     <li>Member Login</li>
-                    <li>Sign Up</li>
+                    <li onClick={props.membership}>Sign Up</li>
                 </ul>
     };
 

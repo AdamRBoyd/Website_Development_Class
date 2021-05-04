@@ -74,3 +74,32 @@ ReactDOM.render(<App />, document.getElementById("root"));
 
 ### (a)
 
+I added handlers for each of the possible pages/states that when called utilized the "setState" to set the state to the desired option. I then passed in a bound copy of each event handler that was bound to "this" into the menu.
+
+```javascript
+return (
+            <>
+                <Menu role={this.state.role} home={this.HomeHandler.bind(this)} activities={this.ActivitiesHandler.bind(this)} membership={this.membershipHandler.bind(this)}/>
+                {content}
+            </>
+        );
+```
+
+### (b)
+
+I added and "onClick" event to each menu item that called the props.optionname which returned to the main and called the event handler.
+
+```javascript
+content = 
+    <ul>
+        <li onClick={props.home}>Home</li>
+        <li onClick={props.activities}>Club Activities</li>
+        <li>Member Login</li>
+        <li onClick={props.membership}>Sign Up</li>
+    </ul>
+```
+
+## Question 4
+
+### (a)
+

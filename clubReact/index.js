@@ -17,19 +17,30 @@ class App extends React.Component {
         this.state = { role: "guest", show: "home" }; 
     }
 
+    HomeHandler(event){
+        this.setState({show: "home"});
+    }
+
+    ActivitiesHandler(event){
+        this.setState({show: "activities"});
+    }
+
+    membershipHandler(event){
+        this.setState({show: "membership"});
+    }
 
     render() {
         let content = null;
         // statements/logic to set the content variable based on state
         switch(this.state.show){
             case "home":
-                content = <Home role={this.state.role}/>;
+                content = <Home role={this.state.role} />;
                 break;
             case "activities":
-                content = <Activities events={events} role={this.state.role}/>; 
+                content = <Activities events={events} role={this.state.role} />; 
                 break;
             case "membership":
-                content = <Membership role={this.state.role}/>;
+                content = <Membership role={this.state.role} />;
                 break;
             default:
                 content = <h2>Warning something went wrong!!!</h2>;
@@ -37,7 +48,7 @@ class App extends React.Component {
 
         return (
             <>
-                <Menu role={this.state.role}/>
+                <Menu role={this.state.role} home={this.HomeHandler.bind(this)} activities={this.ActivitiesHandler.bind(this)} membership={this.membershipHandler.bind(this)}/>
                 {content}
             </>
         );
