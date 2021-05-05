@@ -74,12 +74,12 @@ ReactDOM.render(<App />, document.getElementById("root"));
 
 ### (a)
 
-I added handlers for each of the possible pages/states that when called utilized the "setState" to set the state to the desired option. I then passed in a bound copy of each event handler that was bound to "this" into the menu.
+I added an event handler that when called utilized the "setState" to set the state to the desired given option. I then passed in a bound copy of each event handler that was bound to "this" into the menu.
 
 ```javascript
 return (
             <>
-                <Menu role={this.state.role} home={this.HomeHandler.bind(this)} activities={this.ActivitiesHandler.bind(this)} membership={this.membershipHandler.bind(this)}/>
+                <Menu role={this.state.role} clicked={this.menuClick.bind(this)} shown={this.state.show} />
                 {content}
             </>
         );
@@ -87,16 +87,17 @@ return (
 
 ### (b)
 
-I added and "onClick" event to each menu item that called the props.optionname which returned to the main and called the event handler.
+I added and "onClick" event to each menu item that called the props.clicked which I rebound with an added variable which returned to the main and called the proper event handler based on the passed variable.
 
 ```javascript
 content = 
     <ul>
-        <li onClick={props.home}>Home</li>
-        <li onClick={props.activities}>Club Activities</li>
-        <li>Member Login</li>
-        <li onClick={props.membership}>Sign Up</li>
-    </ul>
+                    <li key="home"><a className={isActive("home")} onClick={props.clicked.bind(null, "home")}>Home</a></li>
+                    <li key="activities"><a className={isActive("activities")} onClick={props.clicked.bind(null, "activities")}>Club Activities</a></li>
+                    <li key="adminActivity"><a className={isActive("adminActivity")} onClick={props.clicked.bind(null, "adminActivity")}>Activities Management</a></li>
+                    <li>Members</li>
+                    <li key="logout"><a onClick={props.clicked.bind(null, "logout")}>Log Out</a></li>
+                </ul>
 ```
 
 ## Question 4
@@ -130,27 +131,29 @@ return <React.Fragment>
                 <h1>Activity Management</h1>
             </header>
             <main>
-                <h2>Add Activity:</h2>
-
                 <section className="gridContainer bordered2">
-                    <form onSubmit={this.handleSubmit}>
-                        <label>Title: </label>
-                        <input type="text" name="title" minLength="1" maxLength="50" required />
-                        
-                        <label>Location: </label>
-                        <input type="text" name="location" minLength="1" maxLength="50" required />
+                    <details>
+                        <summary>Add Activity:</summary>
+                        <form onSubmit={this.handleSubmit}>
+                            <label></label>
+                            <label>Title: </label>
+                            <input type="text" name="title" minLength="1" maxLength="50" required />
+                            
+                            <label>Location: </label>
+                            <input type="text" name="location" minLength="1" maxLength="50" required />
 
-                        <label>Date: </label>
-                        <input type="date" name="dateTime" minLength="1" maxLength="50" required />
+                            <label>Date: </label>
+                            <input type="date" name="dateTime" minLength="1" maxLength="50" required />
 
-                        <label>Activity List: </label>
-                        <select name="which">
-                            <option value="future">Future Events</option>
-                            <option value="nonClub">Non-Club Events</option>
-                        </select>
-                        
-                        <button type="submit">Add</button>
-                    </form>
+                            <label>Activity List: </label>
+                            <select name="which">
+                                <option value="future">Future Events</option>
+                                <option value="nonClub">Non-Club Events</option>
+                            </select>
+                            
+                            <button type="submit">Add</button>
+                        </form>
+                    </details>
                 </section>
 
 ```
@@ -169,24 +172,27 @@ handleSubmit = (event) => {
         };
         console.log(newEvent);
         if(event.target.which.value == "future") {
-            this.props.addE(newEvent);
+            this.props.addAct(newEvent, "club");
         }
         else {
-            this.props.addNCE(newEvent);
+            this.props.addAct(newEvent, "nonClub");
         }
-        
     }
 ```
 
 index.js:
 ```javascript
-addActivityHandler(a){
-        this.setState({events: this.state.events.concat(a) })
-        this.setState({show: "adminActivity"})
-    };
-
-    addActivityNonClubHandler(a){
-        this.setState({nonclub: this.state.nonclub.concat(a) })
-        this.setState({show: "adminActivity"})
-    };
+addActivity(a, list){
+        console.log("add");
+        if(list==="club"){
+            this.setState({events: this.state.events.concat(a) });
+            this.setState({show: "adminActivity"});
+            console.log("club");
+        }
+        else {
+            this.setState({nonclub: this.state.nonclub.concat(a) });
+            this.setState({show: "adminActivity"});
+            console.log("nonclub");
+        }
+    }
 ```

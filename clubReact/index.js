@@ -21,58 +21,48 @@ class App extends React.Component {
         this.state.nonclub = events.nonClubEvents;
     }
 
-    HomeHandler(event){
-        this.setState({show: "home"});
+    menuClick(item){
+        if(item === "logout"){
+            this.setState({role: "guest", show: "home"});
+        }
+        else {
+            this.setState({show: item});
+        }
     }
 
-    ActivitiesHandler(event){
-        this.setState({show: "activities"});
+    addActivity(a, list){
+        console.log("add");
+        if(list==="club"){
+            this.setState({events: this.state.events.concat(a) });
+            this.setState({show: "adminActivity"});
+            console.log("club");
+        }
+        else {
+            this.setState({nonclub: this.state.nonclub.concat(a) });
+            this.setState({show: "adminActivity"});
+            console.log("nonclub");
+        }
     }
 
-    membershipHandler(event){
-        this.setState({show: "membership"});
-    }
-
-    adminActivityHandler(event){
-        this.setState({show: "adminActivity"});
-    }
-
-    addActivityHandler(a){
-        this.setState({events: this.state.events.concat(a) })
-        this.setState({show: "adminActivity"})
-    };
-
-    addActivityNonClubHandler(a){
-        this.setState({nonclub: this.state.nonclub.concat(a) })
-        this.setState({show: "adminActivity"})
-    };
-
-    render() {
+render() {
         let content = null;
         // statements/logic to set the content variable based on state
         switch(this.state.show){
             case "home":
-                content = <Home role={this.state.role} />;
+                content = <Home />;
                 break;
             case "activities":
-                content = 
-                <Activities 
-                events={this.state.events} 
-                nonclub={this.state.nonclub} 
-                role={this.state.role} 
-                />; 
+                content = <Activities events={this.state.events} nonclub={this.state.nonclub} />; 
                 break;
             case "membership":
-                content = <Membership role={this.state.role} />;
+                content = <Membership />;
                 break;
             case "adminActivity":
                 content = 
                 <AdminActivity 
                 events={this.state.events} 
                 nonclub={this.state.nonclub} 
-                role={this.state.role} 
-                addE={this.addActivityHandler.bind(this)} 
-                addNCE={this.addActivityNonClubHandler.bind(this)} 
+                addAct={this.addActivity.bind(this)} 
                 />; 
                 break;
             default:
@@ -82,15 +72,12 @@ class App extends React.Component {
 
         return (
             <>
-                <Menu role={this.state.role} 
-                home={this.HomeHandler.bind(this)} 
-                activities={this.ActivitiesHandler.bind(this)} 
-                adminActivity={this.adminActivityHandler.bind(this)} 
-                membership={this.membershipHandler.bind(this)}/>
+                <Menu role={this.state.role} clicked={this.menuClick.bind(this)} shown={this.state.show} />
                 {content}
             </>
         );
     }
 }
+
 // Now rendering the App component!
 ReactDOM.render(<App />, document.getElementById("root"));

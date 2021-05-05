@@ -3,7 +3,7 @@ import React from 'react';
 class AdminActivity extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { events: [], nonClub: []};
+        this.state = { events: [], nonClub: [], title: "", };
     }
 
     handleSubmit = (event) => {
@@ -16,12 +16,11 @@ class AdminActivity extends React.Component {
         };
         console.log(newEvent);
         if(event.target.which.value == "future") {
-            this.props.addE(newEvent);
+            this.props.addAct(newEvent, "club");
         }
         else {
-            this.props.addNCE(newEvent);
+            this.props.addAct(newEvent, "nonClub");
         }
-        
     }
 
     render() {
@@ -48,27 +47,29 @@ class AdminActivity extends React.Component {
                 <h1>Activity Management</h1>
             </header>
             <main>
-                <h2>Add Activity:</h2>
-
                 <section className="gridContainer bordered2">
-                    <form onSubmit={this.handleSubmit}>
-                        <label>Title: </label>
-                        <input type="text" name="title" minLength="1" maxLength="50" required />
-                        
-                        <label>Location: </label>
-                        <input type="text" name="location" minLength="1" maxLength="50" required />
+                    <details>
+                        <summary>Add Activity:</summary>
+                        <form onSubmit={this.handleSubmit}>
+                            <label></label>
+                            <label>Title: </label>
+                            <input type="text" name="title" minLength="1" maxLength="50" required />
+                            
+                            <label>Location: </label>
+                            <input type="text" name="location" minLength="1" maxLength="50" required />
 
-                        <label>Date: </label>
-                        <input type="date" name="dateTime" minLength="1" maxLength="50" required />
+                            <label>Date: </label>
+                            <input type="date" name="dateTime" minLength="1" maxLength="50" required />
 
-                        <label>Activity List: </label>
-                        <select name="which">
-                            <option value="future">Future Events</option>
-                            <option value="nonClub">Non-Club Events</option>
-                        </select>
-                        
-                        <button type="submit">Add</button>
-                    </form>
+                            <label>Activity List: </label>
+                            <select name="which">
+                                <option value="future">Future Events</option>
+                                <option value="nonClub">Non-Club Events</option>
+                            </select>
+                            
+                            <button type="submit">Add</button>
+                        </form>
+                    </details>
                 </section>
 
                 <h2>Future Events:</h2>
