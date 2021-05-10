@@ -25,19 +25,24 @@ class Order extends React.Component{
         return <div>
             <h2>Order Form</h2>
             <div id="OrderForm">
-                <form>  
+                <form>
+                    <div id="OrderForm">
                     <label>Item: </label>  
-                    <select onChange={this.itemHandler.bind(this)} defaultValue={"none"}>
-                    <option value="none" disabled hidden>Select an Option</option>
-                        <option value="Gold Fish">Gold Fish</option>
-                        <option value="Grey Whale">Grey Whale</option>
-                        <option value="Dolphin">Dolphin</option>
-                        <option value="Sea Lion">Sea Lion</option>
-                    </select>
-
-                    <label>Quantity: </label>
-                    <input type="text" name="qty" onChange={this.quantityHandler.bind(this)} required />
-                    <button onClick={this.clickHandler.bind(this)}>Send Order</button>
+                        <select onChange={this.itemHandler.bind(this)} defaultValue={"none"}>
+                        <option value="none" disabled hidden>Select an Option</option>
+                            <option value="Gold Fish">Gold Fish</option>
+                            <option value="Grey Whale">Grey Whale</option>
+                            <option value="Dolphin">Dolphin</option>
+                            <option value="Sea Lion">Sea Lion</option>
+                        </select>
+                    </div>
+                    <div id="OrderForm">
+                        <label>Quantity: </label>
+                        <input type="text" name="qty" size="12" onChange={this.quantityHandler.bind(this)} required />
+                    </div>
+                    <div id="OrderForm">
+                        <button onClick={this.clickHandler.bind(this)}>Send Order</button>
+                    </div>
                 </form>
             </div>
         </div>
