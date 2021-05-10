@@ -11,8 +11,9 @@ class App extends React.Component {
     }
 
     /* You are allowed to add methods here */
-
-
+    orderHandler(ord){
+        this.setState({orders: this.state.orders.concat(ord)});
+    }
     /* END AREA OF ADDED METHODS */
 
     render() {
@@ -29,7 +30,7 @@ class App extends React.Component {
             <h1> Fish Store Orders </h1> 
             <Order 
                 /* CAN ADD CODE HERE */
-
+                order = {this.orderHandler.bind(this)}
                 />
             <div>
                 <h2>Order History</h2>
