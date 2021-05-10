@@ -26,7 +26,7 @@ class Order extends React.Component{
             <h2>Order Form</h2>
             <div id="OrderForm">
                 <form>
-                    <div id="OrderForm">
+                    <div>
                     <label>Item: </label>  
                         <select onChange={this.itemHandler.bind(this)} defaultValue={"none"}>
                         <option value="none" disabled hidden>Select an Option</option>
@@ -36,11 +36,11 @@ class Order extends React.Component{
                             <option value="Sea Lion">Sea Lion</option>
                         </select>
                     </div>
-                    <div id="OrderForm">
+                    <div>
                         <label>Quantity: </label>
                         <input type="text" name="qty" size="12" onChange={this.quantityHandler.bind(this)} required />
                     </div>
-                    <div id="OrderForm">
+                    <div>
                         <button onClick={this.clickHandler.bind(this)}>Send Order</button>
                     </div>
                 </form>
